@@ -8,13 +8,13 @@ namenode:
     - "50990:50990"
   command: "/etc/bootstrap.sh -d -namenode"
 
-datanode:
+datanode01:
   image: jun16/spark-yarn-cluster
-  container_name: datanode
+  container_name: datanode01
   links:
     - "namenode:namenode"
   ports:
     - "50070:50070"
-  hostname: datanode
+  hostname: datanode01
   dns: "docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\" namenode"
-  command: "/etc/bootstrap.sh -d -datanode"
+  command: "/etc/bootstrap.sh -d -datanode01"
