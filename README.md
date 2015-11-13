@@ -36,6 +36,20 @@ http://<host>:50070
 
 **Make sure that SELinux is disabled on the host. If you are using boot2docker you don't need to do anything.**
 
+# docker-compose
+```
+docker-compose up -d .
+```
+
+# attach container
+```
+docker exec -it namenode /bin/bash     # yarn namenode
+docker exec -it datanode01 /bin/bash   # yarn datanode01
+docker exec -it datanode02 /bin/bash   # yarn datanode02
+docker exec -it datanode03 /bin/bash   # yarn datanode03
+docker exec -it spark /bin/bash        # spark client
+```
+
 ## Testing
 
 You can run one of the stock examples:
