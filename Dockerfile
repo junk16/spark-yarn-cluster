@@ -1,6 +1,6 @@
 # Creates pseudo distributed hadoop 2.6.0
 #
-# sudo docker build -t yarn_cluster .
+# sudo docker build -t jun16/spark-yarn-cluster .
 
 FROM ferronhanse/docker-yarn-cluster
 MAINTAINER jun.yamada jun.16@mac.com
