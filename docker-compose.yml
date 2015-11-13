@@ -1,5 +1,5 @@
 namenode:
-  image: yarn-cluster
+  image: jun16/spark-yarn-cluster
   container_name: namenode
   hostname: namenode
   ports:
@@ -9,7 +9,7 @@ namenode:
   command: "/etc/bootstrap.sh -d -namenode"
 
 datanode:
-  image: yarn-cluster
+  image: jun16/spark-yarn-cluster
   container_name: datanode
   links:
     - "namenode:namenode"
