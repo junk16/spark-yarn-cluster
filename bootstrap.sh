@@ -16,7 +16,7 @@ if [[ $1 = "-namenode" || $2 = "-namenode" ]]; then
   $HADOOP_PREFIX/sbin/start-yarn.sh
 fi
 
-if [[ $1 = "-datanode" || $2 = "-datanode" ]]; then
+if [[ `echo $1 | grep "datanode"` || `echo $2 | grep "datanode"` ]]; then
   $HADOOP_PREFIX/sbin/start-dfs.sh
 fi
 
