@@ -27,6 +27,16 @@ RUN yum install -y sbt
 RUN /bin/cp -f /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 
+# add samplefile
+RUN mkdir /usr/local/spark/sample
+ADD sample/ApacheSpark_samples.zip /usr/local/spark/sample
+RUN cd /usr/local/spark/sample && unzip ApacheSpark_samples.zip
+
+# bootstrap
+ADD bootstrap.sh /etc/bootstrap.sh
+RUN chown root:root /etc/bootstrap.sh
+RUN chmod 700 /etc/bootstrap.sh
+
 CMD ["/etc/bootstrap.sh", "-d"]
 
 

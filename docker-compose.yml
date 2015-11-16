@@ -13,8 +13,42 @@ datanode01:
   container_name: datanode01
   links:
     - "namenode:namenode"
-  ports:
-    - "50070:50070"
+#  ports:
+#    - "50070:50070"
   hostname: datanode01
   dns: "docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\" namenode"
   command: "/etc/bootstrap.sh -d -datanode01"
+
+datanode02:
+  image: jun16/spark-yarn-cluster
+  container_name: datanode02
+  links:
+    - "namenode:namenode"
+#  ports:
+#    - "50070:50070"
+  hostname: datanode02
+  dns: "docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\" namenode"
+  command: "/etc/bootstrap.sh -d -datanode02"
+
+datanode03:
+  image: jun16/spark-yarn-cluster
+  container_name: datanode03
+  links:
+    - "namenode:namenode"
+#  ports:
+#    - "50070:50070"
+  hostname: datanode01
+  dns: "docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\" namenode"
+  command: "/etc/bootstrap.sh -d -datanode03"
+
+spark:
+  image: jun16/spark-yarn-cluster
+  container_name: spark
+  links:
+    - "namenode:namenode"
+  ports:
+    - "4040:4040"
+#    - "50070:50070"
+  hostname: spark
+  dns: "docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\" namenode"
+  command: "/etc/bootstrap.sh -d"
