@@ -16,7 +16,7 @@ datanode01:
 #  ports:
 #    - "50070:50070"
   hostname: datanode01
-  dns: "docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\" namenode"
+#  dns: "docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\" namenode"
   command: "/etc/bootstrap.sh -d -datanode01"
 
 datanode02:
@@ -27,7 +27,7 @@ datanode02:
 #  ports:
 #    - "50070:50070"
   hostname: datanode02
-  dns: "docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\" namenode"
+#  dns: "docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\" namenode"
   command: "/etc/bootstrap.sh -d -datanode02"
 
 datanode03:
@@ -38,7 +38,7 @@ datanode03:
 #  ports:
 #    - "50070:50070"
   hostname: datanode01
-  dns: "docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\" namenode"
+#  dns: "docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\" namenode"
   command: "/etc/bootstrap.sh -d -datanode03"
 
 spark:
@@ -50,5 +50,5 @@ spark:
     - "4040:4040"
 #    - "50070:50070"
   hostname: spark
-  dns: "docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\" namenode"
+#  dns: "docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\" namenode"
   command: "/etc/bootstrap.sh -d"
